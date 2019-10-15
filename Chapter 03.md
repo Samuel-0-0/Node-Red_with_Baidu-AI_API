@@ -19,6 +19,7 @@
 > ---|---
 > access_token | 通过API Key和Secret Key获取的access_token,参考“Access Token获取”
 > Header如下：
+> 
 > 参数 | 值
 > ---|---
 > Content-Type | application/x-www-form-urlencoded
@@ -66,13 +67,13 @@ return msg;
 
 前面的请求参数中提到image是需要Base64编码字符串，那么怎么获得这个字符串呢？
 
-假设我们需要检查一张来着网络的图像，只需要1个http request节点和1个base64节点即可。
+假设我们需要检查一张来自网络的图像，只需要在前面增加1个http request节点和1个base64节点即可。
 
 最终，我们配置这样一条流来进行图像识别。
 
 ![image](https://raw.githubusercontent.com/Samuel-0-0/Node-Red_with_Baidu-AI_API/master/picture/06.png)
 
-可以直接复制导入到Node-Red：
+可以直接复制导入到Node-Red中测试：
 ```
 [{"id":"5faf7164.60b2a","type":"function","z":"196a5cf2.9b52f3","name":"通用物体识别","func":"msg.headers = {\n    \"Content-Type\" : \"application/x-www-form-urlencoded\"\n}\nmsg.url = `https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=${flow.get('access_token')}`;\nmsg.payload = {\n    image:msg.payload, //图片Base64编码\n    baike_num:5 //返回百科信息的结果数量\n}\n\nreturn msg;\n","outputs":1,"noerr":0,"x":600,"y":260,"wires":[["7303ff7c.0ef9a"]]},{"id":"7303ff7c.0ef9a","type":"http request","z":"196a5cf2.9b52f3","name":"","method":"POST","ret":"obj","paytoqs":false,"url":"","tls":"","persist":false,"proxy":"","authType":"","x":760,"y":260,"wires":[["bfb46f16.6ab98"]]},{"id":"47a2bcd6.d4a644","type":"base64","z":"196a5cf2.9b52f3","name":"","action":"","property":"payload","x":440,"y":260,"wires":[["5faf7164.60b2a"]]},{"id":"bfb46f16.6ab98","type":"debug","z":"196a5cf2.9b52f3","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","targetType":"msg","x":910,"y":260,"wires":[]},{"id":"de360e93.54772","type":"inject","z":"196a5cf2.9b52f3","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":170,"y":260,"wires":[["6fcd0d9d.4ba3a4"]]},{"id":"6fcd0d9d.4ba3a4","type":"http request","z":"196a5cf2.9b52f3","name":"","method":"GET","ret":"bin","paytoqs":false,"url":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571140367297&di=c89684813fd816c843313217e07feb0d&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20%2F666%2Fw400h266%2F20180604%2Fb404-hcmurvh7196381.jpg","tls":"","persist":false,"proxy":"","authType":"","x":300,"y":260,"wires":[["47a2bcd6.d4a644","e7009a1c.201908"]]},{"id":"e7009a1c.201908","type":"image","z":"196a5cf2.9b52f3","name":"","width":160,"x":460,"y":300,"wires":[]}]
 ```
