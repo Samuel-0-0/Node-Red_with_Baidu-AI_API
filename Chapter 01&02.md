@@ -27,7 +27,9 @@ https://aip.baidubce.com/rest/2.0/image-classify/v2/dish?access_token=24.f9ba9c5
 
 ## access_token的获取
 要获取access_token需要百度云应用的AK、SK，
-以图像识别为例，首先登陆https://console.bce.baidu.com/ai/#/ai/imagerecognition/overview/index并点击创建应用。
+以图像识别为例，首先登陆https://console.bce.baidu.com/ai/#/ai/imagerecognition/overview/index
+
+并点击创建应用。
 
 ![image](https://raw.githubusercontent.com/Samuel-0-0/Node-Red_with_Baidu-AI_API/master/picture/01.png)
 
