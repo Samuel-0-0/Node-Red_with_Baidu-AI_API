@@ -4,7 +4,7 @@
 Node-Red基础教程略，可以参考萝卜的教程。
 
 ## 百度AI开放平台介绍
-目前为止，各大服务商中，也只有百度比厚道，提供了很多免费的AI服务供我们玩耍，百度AI开放平台的地址是https://ai.baidu.com/docs#/。
+目前为止，各大服务商中，也只有百度比较厚道，提供了很多免费的AI服务供我们玩耍，百度AI开放平台的地址是https://ai.baidu.com/docs#/。
 
 # 第二章 百度AI服务基础
 
@@ -66,7 +66,7 @@ return msg;
 
 ![image](https://raw.githubusercontent.com/Samuel-0-0/Node-Red_with_Baidu-AI_API/master/picture/03.png)
 
-填好后，我们先测试一下，先点击右上角的部署，只后点击inject，这时在调试窗口可以看到有信息输出，如下图
+填好后，我们先测试一下，先点击右上角的部署，然后点击inject，这时在调试窗口可以看到有信息输出，如下图
 
 ![image](https://raw.githubusercontent.com/Samuel-0-0/Node-Red_with_Baidu-AI_API/master/picture/04.png)
 
